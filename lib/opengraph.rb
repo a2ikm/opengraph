@@ -1,6 +1,6 @@
 require 'hashie'
 require 'nokogiri'
-require 'restclient'
+require 'faraday'
 
 module OpenGraph
   # Fetch Open Graph data from the specified URI. Makes an
@@ -10,8 +10,8 @@ module OpenGraph
   # Pass <tt>false</tt> for the second argument if you want to
   # see invalid (i.e. missing a required attribute) data.
   def self.fetch(uri, strict = true)
-    parse(RestClient.get(uri).body, strict)
-  rescue RestClient::Exception, SocketError
+    parse(Faraday.get(uri).body, strict)
+  rescue Faraday::Error::ClientError, SocketError
     false
   end
   
