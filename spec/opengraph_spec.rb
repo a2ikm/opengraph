@@ -1,3 +1,4 @@
+# coding: utf-8
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe OpenGraph do
@@ -32,7 +33,7 @@ describe OpenGraph do
     it 'should catch errors' do
       stub_request(:get, 'http://example.com').to_return(:status => 404)
       OpenGraph.fetch('http://example.com').should be_false
-      RestClient.should_receive(:get).with('http://example.com').and_raise(SocketError)
+      Faraday.should_receive(:get).with('http://example.com').and_raise(SocketError)
       OpenGraph.fetch('http://example.com').should be_false
     end
   end
@@ -40,6 +41,7 @@ end
 
 describe OpenGraph::Object do
   let(:rotten){ File.open(File.dirname(__FILE__) + '/examples/rottentomatoes.html')}
+  let(:euc_jp){ File.open(File.dirname(__FILE__) + '/examples/euc_jp.html')}
   
   context ' a Rotten Tomatoes Movie' do
     subject{ OpenGraph.parse(rotten) }
@@ -64,6 +66,14 @@ describe OpenGraph::Object do
       subject.should be_valid
       subject['type'] = nil
       subject.should_not be_valid
+    end
+  end
+
+  context 'EUC-JP encoded website' do
+    subject { OpenGraph.parse(euc_jp, false) }
+
+    it 'should have the title, converted into UTF-8' do
+      subject.title.should == "このページはEUC-JPで記述されています"
     end
   end
 end
