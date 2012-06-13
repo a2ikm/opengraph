@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "opengraph.gemspec",
     "spec/examples/partial.html",
     "spec/examples/rottentomatoes.html",
+    "spec/examples/euc_jp.html",
     "spec/opengraph_spec.rb",
     "spec/spec.opts",
     "spec/spec_helper.rb"
