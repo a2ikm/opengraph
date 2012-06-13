@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ikm-opengraph"
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Bleigh", "Matt Wilson"]
-  s.date = "2012-04-23"
+  s.date = "2012-06-13"
   s.description = "A very simple Ruby library for parsing Open Graph prototocol information from websites. See http://opengraphprotocol.org for more information."
   s.email = "social-stream@dit.upm.es"
   s.extra_rdoc_files = [
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
     "spec/spec.opts",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/ging/opengraph"
+  s.homepage = "http://github.com/ikm/opengraph"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.12"
   s.summary = "A very simple Ruby library for parsing Open Graph prototocol information from websites."
