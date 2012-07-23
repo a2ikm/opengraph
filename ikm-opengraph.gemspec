@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
     "spec/spec.opts",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/ikm/opengraph"
+  s.homepage = "http://github.com/a2ikm/opengraph"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.12"
   s.summary = "A very simple Ruby library for parsing Open Graph prototocol information from websites."
